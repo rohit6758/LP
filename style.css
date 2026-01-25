@@ -292,11 +292,11 @@ video.animal-gif {
     align-items: center;
     position: relative;
 }
-/* --- New Elements --- */
+/* Mute Button - Now in Top Left Corner */
 #mute-btn {
     position: fixed;
     top: 20px;
-    right: 20px;
+    left: 20px; /* Changed from right to left */
     z-index: 1001;
     background: rgba(255, 255, 255, 0.3);
     border: none;
@@ -306,4 +306,5 @@ video.animal-gif {
     font-size: 20px;
     cursor: pointer;
     backdrop-filter: blur(5px);
+    transition: 0.3s;
 }

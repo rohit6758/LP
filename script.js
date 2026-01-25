@@ -1,23 +1,20 @@
 // Function to handle slide transitions and start music
 function nextSlide(slideNumber) {
-    // Start music on first interaction (required by browsers)
     const music = document.getElementById('bg-music');
-    if (music && music.paused) {
-        music.play();
-    }
     
-    // Hide all slides
+    // This part forces the music to play as soon as she taps the screen
+    if (music) {
+        music.play().catch(error => {
+            console.log("Autoplay prevented, waiting for interaction.");
+        });
+    }
+
     document.querySelectorAll('.life-slide').forEach(slide => {
         slide.classList.remove('active');
     });
     
-    // Show current slide
-    const activeSlide = document.getElementById('life' + slideNumber);
-    if (activeSlide) {
-        activeSlide.classList.add('active');
-    }
+    document.getElementById('life' + slideNumber).classList.add('active');
 }
-
 // Function to Mute/Unmute
 function toggleMute() {
     const audio = document.getElementById('bg-music');
