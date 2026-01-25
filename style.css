@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    color: white;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Slide Container */
+.life-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.life-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Background Colors for each life */
+#life1 { 
+    background: url("penguine background'.jpeg") no-repeat center center/cover; 
+    color: #000;
+ } /* Penguin - Ice */
+#life2 { background: linear-gradient(to bottom, #232526, #414345); color: #fff; } /* Wolf - Night */
+#life3 { 
+    background: url("swan background'.jpeg") no-repeat center center/cover; 
+    color: #000; 
+}
+#life4 { background: linear-gradient(to bottom, #D3CCE3, #E9E4F0); color: #000; } /* Elephant - Grey */
+#life5 {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Warm cat-themed colors */
+    color: white;
+}
+#life6 { background: linear-gradient(to bottom, #DA4453, #89216B); color: #fff; } /* Chameleon - Vibrant */
+#life7 { background: radial-gradient(circle, #ff512f, #dd2476); color: #fff; } /* Human - Passion */
+
+/* Typography */
+.animal-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.love-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-weight: 500;
+}
+
+/* Images & Animation Containers */
+.animation-container {
+    height: 250px;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animal-gif {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Penguin Pebble Animation */
+.pebble {
+    width: 20px;
+    height: 15px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    opacity: 0;
+    animation: givePebble 3s infinite;
+}
+
+@keyframes givePebble {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(50px); opacity: 0; }
+}
+
+/* Next Button */
+.next-btn {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid currentColor;
+    color: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.next-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Final Page Elements */
+.letter-btn-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.letter-btn {
+    background: #fff;
+    color: #dd2476;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.human-heart {
+    font-size: 5rem;
+    animation: heartbeat 1.5s infinite;
+    margin: 20px 0;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.3); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Modal (The Letter) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.8); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    color: #333;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: left;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Navigation Buttons Side by Side */
+.nav-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Sticker Styling */
+.sticker {
+    position: absolute;
+    font-size: 50px;
+    z-index: 10;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+    animation: bounce 2s infinite;
+}
+
+.sticker-left { left: -40px; }
+.sticker-right { right: -40px; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Fix for Videos */
+video.animal-gif {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+/* Fix for videos not playing - ensures they have size and visibility */
+.animation-container video {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Positioning the Back button in the bottom-left corner for Human Life */
+.corner-back-btn {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.corner-back-btn:hover {
+    background: white;
+    color: #ff4b2b;
+}
+
+/* Navigation buttons side-by-side for other lives */
+.nav-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+/* Fix the bottom-left corner button for Life 7 */
+.corner-back-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 999;
+}
+
+/* Ensure the video/image fills the box properly */
+.animal-gif {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.animation-container {
+    width: 90%;
+    max-width: 600px;
+    height: 350px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* --- New Elements --- */
+#mute-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}

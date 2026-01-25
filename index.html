@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Indhu - 7 Lives</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<audio id="bg-music" loop>
+    <source src="sayes1.wav" type="audio/wav">
+</audio>
+
+<button id="mute-btn" onclick="toggleMute()">🔊</button>
+
+<section class="life-slide active" id="life1">
+    <div class="content">
+        <h1 class="animal-title">The Penguin Life</h1>
+        <div class="animation-container">
+            <video autoplay loop muted playsinline class="animal-gif">
+                <source src="Creating_Animal_Love_Videos.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p class="love-text">"Like a penguin, I may be busy working, disciplined in my march...<br>
+                But I will always find the perfect pebble just for you.<br>
+                My love is childishly pure, yet deeply committed."</p>
+        <button class="next-btn" onclick="nextSlide(2)">Next Life &rarr;</button>
+    </div>
+</section>
+
+<section class="life-slide" id="life2">
+    <div class="content">
+        <h1 class="animal-title">The Wolf Life</h1>
+        <div class="animation-container">
+            <video autoplay loop muted playsinline class="animal-gif">
+                <source src="wolves.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p class="love-text">"Wolves mate for life. They are fiercely loyal.<br>
+                I have been loyal to you for 5 years, silently protecting our bond.<br>
+                No matter the distance, the pack remains one."</p>
+        <div class="nav-controls">
+            <button class="next-btn" onclick="nextSlide(1)">&larr; Back</button>
+            <button class="next-btn" onclick="nextSlide(3)">Next Life &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<section class="life-slide" id="life3">
+    <div class="content">
+        <h1 class="animal-title">The Swan Life</h1>
+        <div class="animation-container">
+            <video autoplay loop muted playsinline class="animal-gif">
+                <source src="swan video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p class="love-text">"Graceful and calm. Love isn't about noise, it's about presence.<br>
+                Just floating beside you is enough for me."</p>
+        <div class="nav-controls">
+            <button class="next-btn" onclick="nextSlide(2)">&larr; Back</button>
+            <button class="next-btn" onclick="nextSlide(4)">Next Life &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<section class="life-slide" id="life4">
+    <div class="content">
+        <h1 class="animal-title">The Elephant Life</h1>
+        <div class="animation-container">
+            <video autoplay loop muted playsinline class="animal-gif">
+                <source src="elephant video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p class="love-text">"love is like elephant memory.<br>
+            never forgetting the moments shared,<br>
+            the bonds formed and the joy felt</p>
+        <div class="nav-controls">
+            <button class="next-btn" onclick="nextSlide(3)">&larr; Back</button>
+            <button class="next-btn" onclick="nextSlide(5)">Next Life &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<section class="life-slide" id="life5">
+    <div class="content">
+        <h1 class="animal-title">The Cat Life</h1>
+        <div class="animation-container">
+            <video autoplay loop muted playsinline class="animal-gif">
+                <source src="catlove.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p class="love-text">"We don't need to be glued 24/7.<br>
+                You chill with friends, I do my work.<br>
+                But at the end of the day, we always swing back to each other."</p>
+        <div class="nav-controls">
+            <button class="next-btn" onclick="nextSlide(4)">&larr; Back</button>
+            <button class="next-btn" onclick="nextSlide(6)">Next Life &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<section class="life-slide" id="life6">
+    <div class="content">
+        <h1 class="animal-title">The Chameleon Life</h1>
+        <div class="animation-container">
+            <img src="chameleons image.webp" class="animal-gif">
+        </div>
+        <p class="love-text">"I adapt. I grow. I waited.<br>
+                I am smart enough to build a startup or get any job.<br>
+                I change my colors to fit our future, but my heart stays the same."</p>
+        <div class="nav-controls">
+            <button class="next-btn" onclick="nextSlide(5)">&larr; Back</button>
+            <button class="next-btn" onclick="nextSlide(7)">Next Life &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<section class="life-slide" id="life7">
+    <button class="corner-back-btn" onclick="nextSlide(6)">&larr; Back</button>
+    <div class="letter-btn-container">
+        <button class="letter-btn" onclick="openLetter()">📩 After Love?</button>
+    </div>
+    <div class="content">
+        <h1 class="final-title">The Human Life</h1>
+        <div class="human-heart">❤️</div>
+        <p class="love-text">"Indhu, I was loyal and will be loyal for the whole life.<br>
+                It's not a simple love of months, it's 5 years of sincerity.<br>
+                I kept my distance only to respect your space, not because I stopped loving you.<br><br>
+                <strong>If I had to live ten lives, I would always choose you.</strong>"</p>
+        <p class="signature">- Rohi</p>
+    </div>
+</section>
+
+    <div id="letter-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLetter()">&times;</span>
+            <h2>After Love...</h2>
+            <p>Indhu, love isn't a big dramatic matter to us. We know our minds are one.<br>
+                I told you back in 2023 that we can be friends because I was scared I couldn't keep you happy.<br>
+                But now? I am capable. I am smart. I am ready.<br><br>
+                Who loves sincerely for 5 years in this generation?<br>
+                I distanced myself so I wouldn't hurt you, but I can't hide it anymore.<br>
+                You can take any decision, I won't stop you.<br><br>
+                But know this: <strong>I want you.</strong> Not just to be cared for by me, but I want to be cared for by you too.<br>
+                Our families are ready. I am ready.<br>
+                Let's live this life together.</p>
+        </div>
+    </div>
+<button class="corner-back-btn" onclick="nextSlide(6)">&larr; Back</button>
+    <script src="script.js"></script>
+</body>
+</html>
